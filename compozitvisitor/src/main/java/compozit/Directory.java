@@ -1,4 +1,6 @@
-package compozit1;
+package compozit;
+
+import visitor.Visitor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +14,7 @@ public class Directory extends Node {
         super(name);
     }
 
-    void addSubNode(Node node) {
+    public void addSubNode(Node node) {
         nodes.add(node);
     }
 
@@ -33,5 +35,11 @@ public class Directory extends Node {
             LEVEL -= 1;
         }
         return tree;
+    }
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+        nodes.forEach(node -> node.accept(visitor));
     }
 }

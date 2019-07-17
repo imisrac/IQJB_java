@@ -1,4 +1,4 @@
-package compozit1;
+package compozit;
 
 import org.hamcrest.MatcherAssert;
 import org.junit.Before;

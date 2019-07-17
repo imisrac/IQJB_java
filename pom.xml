@@ -17,7 +17,8 @@
         <module>adapter1</module>
         <module>builder1</module>
         <module>sinobstem</module>
-        <module>compozit1</module>
+        <module>compozitvisitor</module>
+        <module>stateflyweightsingleton</module>
     </modules>
 
     <dependencies>

@@ -1,4 +1,6 @@
-package compozit1;
+package compozit;
+
+import visitor.Visitor;
 
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -15,5 +17,7 @@ public abstract class Node {
     String draw() {
         return IntStream.range(0, LEVEL).mapToObj(operand -> "----").collect(Collectors.joining()) + name;
     }
+
+    abstract void accept(Visitor visitor);
 
 }

@@ -1,4 +1,4 @@
-package compozit1;
+package compozit;
 
 public class SpecialFile extends RegularFile {
 
