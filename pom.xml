@@ -17,6 +17,7 @@
         <module>adapter1</module>
         <module>builder1</module>
         <module>sinobstem</module>
+        <module>compozit1</module>
     </modules>
 
     <dependencies>
