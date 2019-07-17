@@ -12,6 +12,11 @@
         <module>decorator1</module>
         <module>decorator2</module>
         <module>chainofresponsibility1</module>
+        <module>strategy1</module>
+        <module>template1</module>
+        <module>adapter1</module>
+        <module>builder1</module>
+        <module>sinobstem</module>
     </modules>
 
     <dependencies>
@@ -22,5 +27,18 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
