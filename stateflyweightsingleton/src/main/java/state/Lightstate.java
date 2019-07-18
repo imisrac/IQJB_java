@@ -2,7 +2,7 @@ package state;
 
 public interface Lightstate {
 
-    void next();
+    Lightstate next();
 
     String getState();
 

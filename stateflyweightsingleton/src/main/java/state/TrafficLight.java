@@ -11,7 +11,7 @@ public class TrafficLight {
     }
 
     public void change() {
-        this.lightstate.next();
+        this.lightstate = this.lightstate.next();
     }
 
     public Lightstate getLightstate() {
