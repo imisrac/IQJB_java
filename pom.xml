@@ -20,6 +20,7 @@
         <module>compozitvisitor</module>
         <module>stateflyweightsingleton</module>
         <module>functional</module>
+        <module>streams1</module>
     </modules>
 
     <dependencies>
@@ -29,7 +30,14 @@
             <version>4.13-beta-3</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest</artifactId>
+            <version>2.1</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
+
 
     <build>
         <plugins>
