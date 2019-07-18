@@ -19,6 +19,7 @@
         <module>sinobstem</module>
         <module>compozitvisitor</module>
         <module>stateflyweightsingleton</module>
+        <module>functional</module>
     </modules>
 
     <dependencies>
