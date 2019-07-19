@@ -55,4 +55,24 @@ public class MarketTest {
     public void test_sorted_traders_one_string() {
         assertThat(market.getTradersStringSortedByName(), is("Trader: Alan in Cambridge\nTrader: Brian in Cambridge\nTrader: Mario in Milan\nTrader: Raoul in Cambridge"));
     }
+
+    @Test
+    public void test_anybody_from_milan() {
+        assertThat(market.isAnyTraderBasedInCity("Milan"), is(Boolean.TRUE));
+    }
+
+    @Test
+    public void test_transactions_values_for_Cambridge_traders() {
+        assertThat(market.getTransactionValuesForCity("Cambridge"), Matchers.containsInAnyOrder(300, 1000, 400, 950));
+    }
+
+    @Test
+    public void test_highest_transaction_value() {
+        assertThat(market.getHighestTransactionValue(), is(1000));
+    }
+
+    @Test
+    public void test_transaction_with_lowest_value() {
+        assertThat(market.getTransactionWithLowestValue(), is(new Transaction(brian, 2011, 300)));
+    }
 }

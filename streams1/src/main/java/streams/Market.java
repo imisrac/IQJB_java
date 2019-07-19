@@ -3,6 +3,7 @@ package streams;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
 
 class Market {
@@ -32,5 +33,29 @@ class Market {
 
     String getTradersStringSortedByName() {
         return traders.stream().sorted(Comparator.comparing(Trader::getName)).map(Trader::toString).collect(Collectors.joining("\n"));
+    }
+
+    boolean isAnyTraderBasedInCity(String city) {
+        return !getTraderNamesFromCitySortedByName(city).isEmpty();
+    }
+
+    List<Integer> getTransactionValuesForCity(String city) {
+        return transactions.stream()
+                .filter(transaction -> getTraderNamesFromCitySortedByName(city).contains(transaction.getTrader().getName()))
+                .map(Transaction::getValue)
+                .collect(Collectors.toList());
+    }
+
+    int getHighestTransactionValue() {
+        return transactions.stream()
+                .mapToInt(Transaction::getValue)
+                .max()
+                .orElseThrow(RuntimeException::new);
+    }
+
+    Transaction getTransactionWithLowestValue() {
+        return transactions.stream()
+                .reduce(BinaryOperator.minBy(Comparator.comparingInt(Transaction::getValue)))
+                .orElseThrow(RuntimeException::new);
     }
 }

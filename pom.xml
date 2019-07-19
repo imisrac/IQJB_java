@@ -21,6 +21,7 @@
         <module>stateflyweightsingleton</module>
         <module>functional</module>
         <module>streams1</module>
+        <module>commandstreams</module>
     </modules>
 
     <dependencies>

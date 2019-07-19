@@ -3,7 +3,6 @@ package streams;
 import java.util.Objects;
 
 public class Transaction {
-
     private Trader trader;
     private int year;
     private int value;
