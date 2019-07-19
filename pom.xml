@@ -22,6 +22,7 @@
         <module>functional</module>
         <module>streams1</module>
         <module>commandstreams</module>
+        <module>measuring</module>
     </modules>
 
     <dependencies>
