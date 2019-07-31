@@ -1,3 +1,7 @@
 # Default ignored files
 .idea/*
 *.iml
+/streams1/target/classes/streams/Market.class
+/streams1/target/classes/streams/Trader.class
+/streams1/target/classes/streams/Transaction.class
+/streams1/target/test-classes/streams/MarketTest.class

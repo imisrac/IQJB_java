@@ -4,11 +4,12 @@ import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 import java.util.Arrays;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
 
 public class MarketTest {
 
@@ -30,15 +31,12 @@ public class MarketTest {
         );
 
         market = new Market(transactions);
-        market.addTrader(raoul);
-        market.addTrader(mario);
-        market.addTrader(alan);
-        market.addTrader(brian);
     }
 
     @Test
     public void test_sorted_in_2011() {
-        assertThat(market.getTransactionsInYearSortedByValue(2011), is(Arrays.asList(new Transaction(brian, 2011, 300), new Transaction(raoul, 2011, 400))));
+        assertThat(market.getTransactionsInYearSortedByValue(2011),
+                is(Arrays.asList(new Transaction(brian, 2011, 300), new Transaction(raoul, 2011, 400))));
     }
 
     @Test
@@ -53,7 +51,8 @@ public class MarketTest {
 
     @Test
     public void test_sorted_traders_one_string() {
-        assertThat(market.getTradersStringSortedByName(), is("Trader: Alan in Cambridge\nTrader: Brian in Cambridge\nTrader: Mario in Milan\nTrader: Raoul in Cambridge"));
+        assertThat(market.getTradersStringSortedByName(),
+                is("Trader: Alan in Cambridge\nTrader: Brian in Cambridge\nTrader: Mario in Milan\nTrader: Raoul in Cambridge"));
     }
 
     @Test
