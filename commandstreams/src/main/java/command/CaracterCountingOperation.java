@@ -2,14 +2,13 @@ package command;
 
 import com.google.common.collect.ImmutableMap;
 
-import java.util.Map;
 
 public class CaracterCountingOperation extends DictionaryOperationImpl {
 
 
     @Override
-    public Map execute() {
-        return ImmutableMap.of("sum", lines.stream()
+    public ImmutableMap<String, Integer> execute() {
+        return ImmutableMap.of("numberOfChars", lines.stream()
                 .mapToInt(String::length)
                 .sum());
     }

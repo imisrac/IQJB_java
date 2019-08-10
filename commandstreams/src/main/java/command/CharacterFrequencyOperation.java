@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 public class CharacterFrequencyOperation extends DictionaryOperationImpl {
     @Override
-    public Map execute() {
+    public Map<String, Long> execute() {
         return lines.stream()
                 .map(s -> s.split(""))
                 .flatMap(Arrays::stream)

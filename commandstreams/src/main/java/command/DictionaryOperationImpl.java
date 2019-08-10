@@ -12,7 +12,9 @@ public abstract class DictionaryOperationImpl implements DictionaryOperation {
 
     public DictionaryOperationImpl() {
         try {
-            this.lines = Files.readAllLines(Paths.get("C:\\Users\\IQJB\\IdeaProjects\\20190715\\commandstreams\\src\\main\\resources\\dictionary.txt"), Charset.defaultCharset());
+            this.lines = Files.readAllLines(
+                    Paths.get("C:\\Users\\eimrnem\\IdeaProjects\\IQJB_java\\commandstreams\\src\\main\\resources\\dictionary.txt"),
+                    Charset.defaultCharset());
         } catch (IOException e) {
             e.printStackTrace();
         }

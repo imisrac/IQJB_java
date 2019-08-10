@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 public class WordLenghtFrequencyOperation extends DictionaryOperationImpl {
     @Override
-    public Map execute() {
+    public Map<Integer, Long> execute() {
         return lines.stream()
                 .collect(Collectors.groupingBy(String::length, Collectors.counting()));
     }
