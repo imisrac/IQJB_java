@@ -42,19 +42,22 @@ class Market {
     String getTradersStringSortedByName() {
         return transactions.stream()
                 .map(Transaction::getTrader)
+                .map(Trader::getName)
                 .distinct()
-                .sorted(Comparator.comparing(Trader::getName))
-                .map(Trader::toString)
-                .collect(Collectors.joining("\n"));
+                .sorted()
+                .collect(Collectors.joining());
     }
 
     boolean isAnyTraderBasedInCity(String city) {
-        return !getTraderNamesFromCitySortedByName(city).isEmpty();
+        //        return !getTraderNamesFromCitySortedByName(city).isEmpty();
+        return transactions.stream()
+                .anyMatch(transaction -> city.equals(transaction.getTrader().getCity()));
     }
 
     List<Integer> getTransactionValuesForCity(String city) {
         return transactions.stream()
-                .filter(transaction -> getTraderNamesFromCitySortedByName(city).contains(transaction.getTrader().getName()))
+                //                .filter(transaction -> getTraderNamesFromCitySortedByName(city).contains(transaction.getTrader().getName()))
+                .filter(transaction -> city.equals(transaction.getTrader().getCity()))
                 .map(Transaction::getValue)
                 .collect(Collectors.toList());
     }

@@ -1,10 +1,14 @@
 package command;
 
-import org.hamcrest.number.IsCloseTo;
+import org.hamcrest.Matchers;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+
+import java.util.Arrays;
+import java.util.List;
+
 
 public class DictionaryAnalyzerExecutorTest {
 
@@ -22,18 +26,24 @@ public class DictionaryAnalyzerExecutorTest {
 
     @Test
     public void test_number_of_characters() {
-        assertThat(dictionaryAnalyzerExecutor.executeOperation(new CaracterCountingOperation()).get("sum"), is(148278));
+        assertThat(dictionaryAnalyzerExecutor.executeOperation(new CaracterCountingOperation()).get("numberOfChars"), is(148278));
     }
 
     @Test
     public void test_word_length() {
-        assertThat(dictionaryAnalyzerExecutor.executeOperation(new WordLenghtOperation()).get("shortest"), is(1));
-        assertThat(dictionaryAnalyzerExecutor.executeOperation(new WordLenghtOperation()).get("longest"), is(22));
-        assertThat((double) dictionaryAnalyzerExecutor.executeOperation(new WordLenghtOperation()).get("average"), IsCloseTo.closeTo(7D, 1D));
+        assertThat(dictionaryAnalyzerExecutor.executeOperation(new WordLenghtOperation()).get("min"), is(1));
+        assertThat(dictionaryAnalyzerExecutor.executeOperation(new WordLenghtOperation()).get("max"), is(22));
+        assertThat((double) dictionaryAnalyzerExecutor.executeOperation(new WordLenghtOperation()).get("avg"), Matchers.closeTo(7D, 1D));
     }
 
-//    @Test seems like infinite loop
-//    public void test_anagrams_by_word() {
-//        assertThat((List<String>) dictionaryAnalyzerExecutor.executeOperation(new WordAnagramCounterOperation()).get("race"), Matchers.containsInAnyOrder(""));
-//    }
+    @Test
+    public void test_anagrams_by_word() {
+        assertThat((List) dictionaryAnalyzerExecutor.executeOperation(new WordAnagramCounterOperation("race")).get("race"),
+                Matchers.containsInAnyOrder(Arrays.asList("acre", "care", "race")));
+    }
+
+    //    @Test
+    //    public void test_anagram_group_with_number_of_items() {
+    //        assertThat(dictionaryAnalyzerExecutor.executeOperation(new AnagramGroupsWithItems(4)).get(4), is(""));
+    //    }
 }

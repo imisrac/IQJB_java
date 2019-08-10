@@ -1,23 +1,31 @@
 package command;
 
+import com.google.common.collect.ImmutableMap;
+
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
+
 public class WordAnagramCounterOperation extends DictionaryOperationImpl {
-    @Override
-    public Map execute() {
-        return lines.stream().collect(Collectors.toMap(o -> o, this::anagramsOf));
-    }
 
-    private List<String> anagramsOf(String word) {
-        String ordered = order(word);
-        return lines.stream()
-                .filter(s -> ordered.equals(order(s)))
-                .collect(Collectors.toList());
-    }
+	private String word;
 
-    private String order(String word) {
-        return word.chars().sorted().mapToObj(String::valueOf).collect(Collectors.joining());
-    }
+	public WordAnagramCounterOperation(String word) {
+		this.word = word;
+	}
+
+	@Override
+	public ImmutableMap<String, List<String>> execute() {
+		return ImmutableMap.of(word, anagramsOf(word));
+	}
+
+	private List<String> anagramsOf(String word) {
+		String ordered = order(word);
+		return lines.filter(s -> ordered.equals(order(s)))
+				.collect(Collectors.toList());
+	}
+
+	private String order(String word) {
+		return word.chars().sorted().mapToObj(String::valueOf).collect(Collectors.joining());
+	}
 }

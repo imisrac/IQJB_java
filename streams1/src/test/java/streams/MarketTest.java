@@ -52,7 +52,7 @@ public class MarketTest {
     @Test
     public void test_sorted_traders_one_string() {
         assertThat(market.getTradersStringSortedByName(),
-                is("Trader: Alan in Cambridge\nTrader: Brian in Cambridge\nTrader: Mario in Milan\nTrader: Raoul in Cambridge"));
+				is("AlanBrianMarioRaoul"));
     }
 
     @Test

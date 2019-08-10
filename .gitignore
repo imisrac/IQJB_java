@@ -5,3 +5,13 @@
 /streams1/target/classes/streams/Trader.class
 /streams1/target/classes/streams/Transaction.class
 /streams1/target/test-classes/streams/MarketTest.class
+/commandstreams/target/classes/command/AnagramGroupsWithItems.class
+/commandstreams/target/classes/command/CaracterCountingOperation.class
+/commandstreams/target/classes/command/CharacterFrequencyOperation.class
+/commandstreams/target/classes/command/DictionaryAnalyzerExecutor.class
+/commandstreams/target/classes/command/DictionaryOperation.class
+/commandstreams/target/classes/command/DictionaryOperationImpl.class
+/commandstreams/target/classes/command/WordAnagramCounterOperation.class
+/commandstreams/target/classes/command/WordLenghtFrequencyOperation.class
+/commandstreams/target/classes/command/WordLenghtOperation.class
+/commandstreams/target/classes/dictionary.txt

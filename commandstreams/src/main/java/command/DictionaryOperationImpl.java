@@ -4,17 +4,24 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.stream.Stream;
+
 
 public abstract class DictionaryOperationImpl implements DictionaryOperation {
 
-    List<String> lines;
+    private static final Logger LOGGER = Logger.getLogger(DictionaryOperationImpl.class.getName());
+
+    Stream<String> lines;
 
     public DictionaryOperationImpl() {
         try {
-            this.lines = Files.readAllLines(Paths.get("C:\\Users\\IQJB\\IdeaProjects\\20190715\\commandstreams\\src\\main\\resources\\dictionary.txt"), Charset.defaultCharset());
+            this.lines = Files.readAllLines(
+                    Paths.get("C:\\Users\\eimrnem\\IdeaProjects\\IQJB_java\\commandstreams\\src\\main\\resources\\dictionary.txt"),
+                    Charset.defaultCharset()).stream();
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Problem reading file!", e);
         }
     }
 }
