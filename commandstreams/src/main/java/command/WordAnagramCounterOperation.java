@@ -16,16 +16,15 @@ public class WordAnagramCounterOperation extends DictionaryOperationImpl {
 
 	@Override
 	public ImmutableMap<String, List<String>> execute() {
-		return ImmutableMap.of(word, anagramsOf(word));
-	}
-
-	private List<String> anagramsOf(String word) {
 		String ordered = order(word);
-		return lines.filter(s -> ordered.equals(order(s)))
-				.collect(Collectors.toList());
+		return ImmutableMap.of(word, lines.filter(s -> ordered.equals(order(s)))
+				.collect(Collectors.toList()));
 	}
 
 	private String order(String word) {
-		return word.chars().sorted().mapToObj(String::valueOf).collect(Collectors.joining());
+		return word.chars()
+				.sorted()
+				.mapToObj(String::valueOf)
+				.collect(Collectors.joining());
 	}
 }

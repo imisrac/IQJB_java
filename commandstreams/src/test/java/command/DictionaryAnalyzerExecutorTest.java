@@ -6,7 +6,6 @@ import org.junit.Test;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -38,12 +37,12 @@ public class DictionaryAnalyzerExecutorTest {
 
     @Test
     public void test_anagrams_by_word() {
-        assertThat((List) dictionaryAnalyzerExecutor.executeOperation(new WordAnagramCounterOperation("race")).get("race"),
-                Matchers.containsInAnyOrder(Arrays.asList("acre", "care", "race")));
+        assertThat((List<String>) dictionaryAnalyzerExecutor.executeOperation(new WordAnagramCounterOperation("race")).get("race"),
+                Matchers.containsInAnyOrder("acre", "care", "race"));
     }
 
-    //    @Test
-    //    public void test_anagram_group_with_number_of_items() {
-    //        assertThat(dictionaryAnalyzerExecutor.executeOperation(new AnagramGroupsWithItems(4)).get(4), is(""));
-    //    }
+    @Test
+    public void test_anagram_group_with_number_of_items() {
+        assertThat(dictionaryAnalyzerExecutor.executeOperation(new AnagramGroupsWithItems(4)).get(4), is(""));
+    }
 }
